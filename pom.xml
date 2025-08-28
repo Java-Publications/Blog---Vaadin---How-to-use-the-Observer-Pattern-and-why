@@ -8,7 +8,7 @@
     <parent>
         <groupId>com.svenruppert</groupId>
         <artifactId>dependencies</artifactId>
-        <version>06.00.08</version>
+        <version>06.00.09</version>
     </parent>
 
     <artifactId>flow-template</artifactId>
@@ -87,9 +87,9 @@
         <!--        Vaadin Flow Properties-->
         <failOnMissingWebXml>false</failOnMissingWebXml>
 
-        <vaadin.version>24.7.3</vaadin.version>
+        <vaadin.version>24.7.4</vaadin.version>
         <drivers.downloader.phase>pre-integration-test</drivers.downloader.phase>
-        <jetty.version>11.0.25</jetty.version>
+        <jetty.version>11.0.26</jetty.version>
         <warName>application</warName>
     </properties>
 
@@ -200,6 +200,12 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.svenruppert</groupId>
+            <artifactId>core</artifactId>
+            <version>06.00.09</version>
         </dependency>
     </dependencies>
 

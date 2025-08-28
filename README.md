@@ -1,66 +1,25 @@
-# core-vaadin-project-template
+# Observer Pattern with Vaadin Flow – Examples
 
-A Template that can be used to start a Core Vaadin Flow Project.
-In this demo you will find a simple UI, based on Vaadin Flow.
+This repository contains accompanying source code for a technical article on the use of the Observer Pattern in combination with Vaadin Flow. The aim is to highlight the differences between the classical pattern and the Vaadin-specific implementation, as well as to demonstrate practical use cases.
 
-## What is offered by this template?
+# The examples illustrate:
 
-* TDD with Junit5
-* MutationCoverage with PiTest
-* Compile via Dockerimage
-* Deployment via Dockerimage
-* Development Dockerimage with JDK and Maven
-* Production Dockerimage with JDK
-* Issuetracker via Github Issues
-* Projectplanning via Github Projects
-* Create SBOM (cyclonedx)
-* Dependency Version Management via versions plugin
-* Integration Tests for the REST Server
-*
+## Classical Observer Pattern
+Standalone implementations of Subject and Observer demonstrate the fundamental principle, decoupled event propagation, and testability outside a UI.
 
-## Vulnerability - Hunting
+## Observer in Vaadin Flow
+Use of Vaadin’s built-in mechanisms (ValueChangeListener, Binder) to observe UI state changes and integration with the component lifecycle (onAttach, onDetach).
 
-Even in small projects it is importand to scann for vulnerabilities.
-But mostly there is no budget for personal projects.
-What should you do? Well, you can combine different free offerings
-to see who is reporting faster in wich case. Most vendors are implementing it as Github-PR.
-So, see who is fast and what you will get.
-I will list a few provider so that you have a solid base to start with.
+## Combination of Observer Pattern and Vaadin Flow
+A domain service distributes events to registered observers. A Vaadin view registers itself as an observer and updates its UI safely via UI.access(…).
+This is complemented by an external MessageProducer which generates messages in separate threads and pushes them into the UI.
 
-* Snyk: https://snyk.io/
-* OXSecurity: https://app.ox.security/
-* FaradaySec: https://faradaysec.com/
+## Best Practices and Pitfalls
+Recommendations regarding lifecycle management, thread safety, separation of domain and UI, logging, and memory discipline.
 
-## Todos
+## Objective
+The examples show how to achieve loose coupling and clean separation of concerns in modern web applications. They emphasise that the classical Observer Pattern remains valuable despite Vaadin Flow’s integrated mechanisms – particularly for domain-level events and external integrations.
 
-* Wie mache ich ein release? -jreleaser?
-* Compile in Docker
-* Run in Docker - Webservices..
-* PiTest in Docker mit Source Snapshot
-
-## How to start
-
-* search and replace inside pom.xml - "https://github.com/svenruppert/core-vaadin-project-template" with your coordinates.
-* define what is your JDK you want to use and change it - default is the latest Temurin LTS
-  * inside the Docker image definitions
-  * inside your pom.xml
-* change the properties **pitest-prod-classes** and **pitest-test-classes**
-* change the properties for the deployment repositories
-* change the repositories, you are resolving from. Default is maven central
-* if you have a main class, change the property **app.main.class** or comment it out
-* create the docker images under _tools/docker
-  * develop/build.sh
-  * runtime/build.sh
-  * application/build.sh - first time after you created your shaded application.jar
-
-## Docker Images for Develop and Runtime
-
-### Developer Images
-
-Here we are creating an image with JDK and maven (or gradle if you are using it).
-
-### Best practices
-
-From time to time update the core Images with the latest updates on OS system base.
-For this tag the image with the update date, so tht everybody know how old the updated
-image is.
+## Usage
+The examples are structured as standalone classes and can be executed directly within a Vaadin Flow application.
+To run them, simply compile the application and open the respective routes in the browser (/observer-demo, /observer-example, …).

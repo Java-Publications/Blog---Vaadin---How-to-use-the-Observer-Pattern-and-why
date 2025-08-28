@@ -14,6 +14,7 @@ import com.vaadin.flow.theme.lumo.LumoUtility;
 
 import static com.vaadin.flow.component.icon.VaadinIcon.*;
 
+
 public class MainLayout
     extends AppLayout {
 
@@ -51,13 +52,12 @@ public class MainLayout
 
   private SideNav getPrimaryNavigation() {
     SideNav sideNav = new SideNav();
-    sideNav.addItem(new SideNavItem("Dashboard", "/dashboard",
-                                    DASHBOARD.create()),
-                    new SideNavItem("Youtube", "/youtube",
-                                    CART.create()),
-                    new SideNavItem("About", "/about",
-                                    USER_HEART.create())
-    );
+    sideNav.addItem(
+        new SideNavItem("Dashboard", "/dashboard", DASHBOARD.create()),
+        new SideNavItem("Binder Demo", "/observer-bordmittel", ANCHOR.create()),
+        new SideNavItem("Observer Demo", "/observer-example", DOCTOR.create()),
+        new SideNavItem("Youtube", "/youtube", CART.create()),
+        new SideNavItem("About", "/about", USER_HEART.create()));
     return sideNav;
   }
 
