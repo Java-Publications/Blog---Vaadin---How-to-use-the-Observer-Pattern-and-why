@@ -1,5 +1,6 @@
 package com.svenruppert.flow;
 
+import com.svenruppert.flow.views.YoutubeView;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.html.H1;
@@ -56,7 +57,7 @@ public class MainLayout
         new SideNavItem("Dashboard", "/dashboard", DASHBOARD.create()),
         new SideNavItem("Binder Demo", "/observer-bordmittel", ANCHOR.create()),
         new SideNavItem("Observer Demo", "/observer-example", DOCTOR.create()),
-        new SideNavItem("Youtube", "/youtube", CART.create()),
+        new SideNavItem("Youtube", "/"+YoutubeView.PATH, CART.create()),
         new SideNavItem("About", "/about", USER_HEART.create()));
     return sideNav;
   }

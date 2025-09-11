@@ -21,6 +21,7 @@ public class ObserverDemoTest {
 
     sensor.setTemperatur(22);
     assertEquals(22, anzeigeA.lastObservedTemp);
+    assertEquals(22, anzeigeB.lastObservedTemp);
     assertEquals(22, sensor.getTemperatur());
 
     sensor.setTemperatur(25);
@@ -63,7 +64,9 @@ public class ObserverDemoTest {
     public void removeObserver(Observer<Integer> o) { observers.remove(o); }
 
     @Override
-    public void notifyObservers(Integer value) { observers.forEach(o -> o.onUpdate(value)); }
+    public void notifyObservers(Integer value) {
+      observers.forEach(o -> o.onUpdate(value));
+    }
 
     public int getTemperatur() { return temperatur; }
 

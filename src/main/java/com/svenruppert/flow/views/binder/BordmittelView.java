@@ -17,7 +17,8 @@ public class BordmittelView
     var speichern = new Button("Speichern");
 
     // (1) Komponenteninterner Observer: reagiert auf ValueChangeEvent
-    name.addValueChangeListener(e -> log.setText("UI → UI: Name geändert zu '" + e.getValue() + "'"));
+    name.addValueChangeListener(
+        e -> log.setText("UI → UI: Name geändert zu '" + e.getValue() + "'"));
 
     // (2) Binder als bidirektionale Beobachtung zwischen UI und Modell
     var binder = new Binder<>(Person.class);
